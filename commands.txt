@@ -1,0 +1,25 @@
+--Laravel Mix--
+npm init -y
+npm install laravel-mix --save-dev
+
+--To STart--
+npx mix watch
+--------------------------
+--Tailwind css--
+
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init
+
+--TO START--
+npx tailwindcss -i  ./src/css/style.css -o ./style.css --watch
+-------------------------------
+
+
+--To Update Dependencies 
+
+npm update
+or
+npm update <name>
+or
+npx npm-check-updates -u
+"npm install"

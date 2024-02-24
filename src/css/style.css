@@ -1,0 +1,158 @@
+/*
+Theme Name: Portfolio
+Author: Neil Mallia 
+Author URI: https://neilmallia.com
+Version: 1.0.0
+*/
+@import url('https://fonts.googleapis.com/css2?family=Heebo&family=Noto+Sans&family=Sedgwick+Ave+Display&display=swap');
+/* Any other imports of css goes above tailwind imports */
+@import './locomotive-scroll.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    border-color: #082b71;
+}
+.light {
+    transition: 500ms;
+    background-color: #e0f0f0;
+    color: #1a202c;
+}
+
+.dark {
+    transition: 500ms;
+    background-color: #1a202c;
+    color: #e0f0f0;
+}
+
+.current-menu-item {
+    color: blue;
+}
+
+.mask {
+    height: 500px;
+    mask-size: 20px;
+    mask-repeat: no-repeat;
+    background: rgb(44, 61, 79);
+}
+
+/* Mobile menu items */
+.mobile li.menu-item {
+    opacity: 0;
+    display: none;
+}
+/* Desktop menu items */
+.try li.menu-item {
+    opacity: 1 !important;
+    display: block !important;
+}
+
+[data-gradient='border-gradient'] {
+    background: linear-gradient(-45deg, #082b71, #ffffff, #000000, #082b71, #ffffff, #000000);
+    background-size: 400% 400%;
+    animation: gradient 5s ease infinite;
+}
+
+.glowing-line {
+    width: 35px;
+    height: 6px;
+    background: linear-gradient(90deg, #19bc9b, #2c3d4f);
+    background-size: 400% 400%;
+    animation: gradient 3s ease infinite;
+    box-shadow: 0 0 10px #19bc9b;
+}
+.wide {
+    width: 50px;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+div#wpcf7-f71-o1 form {
+    position: relative;
+    left: -25%;
+    display: flex;
+    flex-direction: column;
+    width: 150%;
+    gap: 40px;
+}
+
+div#wpcf7-f71-o1 input,
+div#wpcf7-f71-o1 textarea {
+    margin-top: 5px;
+}
+
+div#wpcf7-f71-o1 p {
+    font-size: 1.5rem;
+}
+
+div#wpcf7-f71-o1 p input,
+div#wpcf7-f71-o1 p textarea {
+    width: 100%;
+    outline: none;
+    border-bottom: 3px solid rgba(0, 0, 255, 0.5);
+    background-color: transparent;
+    padding-left: 5px;
+    font-size: 1rem;
+}
+
+div#wpcf7-f71-o1 p textarea {
+    max-height: 200px;
+    min-height: 200px;
+}
+
+div#wpcf7-f71-o1 input.wpcf7-submit {
+    padding: 20px 0;
+    border: 1px solid rgba(0, 0, 255, 0.5);
+}
+
+div#wpcf7-f71-o1 input.wpcf7-submit:hover {
+    cursor: pointer;
+}
+
+input[type='submit'] {
+    position: relative;
+    left: 25%;
+    width: 50% !important;
+    color: blue;
+    border: 2px solid #2c3d4f !important;
+    background-color: #19bc9b !important;
+    font-weight: 800;
+    font-family: 'Sedgwick Ave Display', 'cursive';
+}
+
+@media screen and (max-width: 768px) {
+    div#wpcf7-f71-o1 form {
+        position: relative;
+        left: 5%;
+        width: 90%;
+    }
+    input[type='submit'] {
+        position: relative;
+        left: 0;
+        width: 100% !important;
+    }
+}
+
+div.wpcf7-response-output {
+    text-align: center;
+}
+
+[data-scroll-container] {
+    scroll-behavior: smooth;
+}
+
+.about-page::-webkit-scrollbar {
+    width: 0px;
+}
+
