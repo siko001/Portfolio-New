@@ -34,7 +34,7 @@ if ($query->have_posts()) {
 
                                 <div class="text-3xl relative text-white w-full h-full">
                                     <img class="relative  object-cover rounded-t-2xl w-full h-full " src="<?= get_field('company_logo')['url']  ?>" />
-                                    <div class=" grid place-items-center absolute top-0 left-0 right-0 bottom-0 opacity-70 bg-black w-full h-full text-neutral-50 rounded-t-2xl"><?php the_title() ?> </div>
+                                    <div class=" grid place-items-center absolute top-0 left-0 right-0 bottom-0 opacity-70 bg-black w-full h-full text-center text-neutral-50 rounded-t-2xl"><?php the_title() ?> </div>
                                 </div>
                             </div>
                             <div class="h-[125px] px-4 mt-6 text-center text-neutral-50">
