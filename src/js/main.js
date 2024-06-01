@@ -2,6 +2,9 @@ import * as Player from '@lottiefiles/lottie-player';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 import { gsap } from 'gsap';
+import LocomotiveScroll from 'locomotive-scroll';
+
+// import './page-animations';
 
 const player = document.getElementById('theme-player');
 const darkMode = () => localStorage.getItem('darkMode');
@@ -24,9 +27,9 @@ const playAnimation = () => {
     if (!isAnimating) {
         isAnimating = true;
         setBackgroundColor();
-        player.play();
+        player ? player.play() : null;
         setTimeout(() => {
-            player.pause();
+            player?.pause();
             isAnimating = false;
         }, 2000);
     }
@@ -53,7 +56,7 @@ const setBackgroundColor = () => {
     }
 };
 
-player.addEventListener('click', toggleDarkMode);
+player ? player.addEventListener('click', toggleDarkMode) : null;
 
 document.addEventListener('DOMContentLoaded', () => {
     checkDarkMode();
@@ -132,7 +135,8 @@ let isAnimatingNav = false;
 let tl2 = gsap.timeline({ paused: true });
 const mobileMenu = document.querySelector('[data-mobile-nav-menu]');
 const mobileContianer = document.querySelector('[data-mobile-nav-container');
-const navItems = mobileMenu.children;
+let navItems;
+mobileContianer ? (navItems = mobileMenu.children) : null;
 
 tl2.to(mobileNav, {
     scale: 20,
@@ -150,49 +154,51 @@ tl2.to(mobileNav, {
         });
     },
 });
-navPlayer.addEventListener('click', () => {
-    if (!isAnimatingNav) {
-        navPlayer.play();
-        isAnimatingNav = true;
+if (navPlayer) {
+    navPlayer.addEventListener('click', () => {
+        if (!isAnimatingNav) {
+            navPlayer.play();
+            isAnimatingNav = true;
 
-        if (!mobileNav.classList.contains('active')) {
-            mobileNav.classList.add('active');
-            mobileContianer.style.display = 'grid';
-            tl2 = gsap.timeline();
-            tl2.to(mobileNav, {
-                scale: 20,
-                width: '15%',
-                height: '15%',
-                duration: 0.4,
-                onComplete: () => {
-                    Array.from(navItems).forEach((item) => {
-                        item.style.display = 'block';
-                    });
-                    gsap.to(navItems, {
-                        opacity: 1,
-                        duration: 0.5,
-                        stagger: 0.2,
-                    });
-                },
-            });
-            tl2.play();
-        } else {
-            mobileContianer.style.display = 'none';
-            tl2.reverse();
-            mobileNav.classList.remove('active');
-            const menuItems = document.querySelectorAll('li.menu-item');
-            menuItems.forEach((item) => {
-                item.style.display = 'none';
-                item.style.opacity = 0;
-            });
+            if (!mobileNav.classList.contains('active')) {
+                mobileNav.classList.add('active');
+                mobileContianer.style.display = 'grid';
+                tl2 = gsap.timeline();
+                tl2.to(mobileNav, {
+                    scale: 20,
+                    width: '15%',
+                    height: '15%',
+                    duration: 0.4,
+                    onComplete: () => {
+                        Array.from(navItems).forEach((item) => {
+                            item.style.display = 'block';
+                        });
+                        gsap.to(navItems, {
+                            opacity: 1,
+                            duration: 0.5,
+                            stagger: 0.2,
+                        });
+                    },
+                });
+                tl2.play();
+            } else {
+                mobileContianer.style.display = 'none';
+                tl2.reverse();
+                mobileNav.classList.remove('active');
+                const menuItems = document.querySelectorAll('li.menu-item');
+                menuItems.forEach((item) => {
+                    item.style.display = 'none';
+                    item.style.opacity = 0;
+                });
+            }
+
+            setTimeout(() => {
+                navPlayer.pause();
+                isAnimatingNav = false;
+            }, 1490);
         }
-
-        setTimeout(() => {
-            navPlayer.pause();
-            isAnimatingNav = false;
-        }, 1490);
-    }
-});
+    });
+}
 
 const maxWidth = 1024;
 let mql = window.matchMedia(`(max-width: ${maxWidth}px)`);
@@ -226,6 +232,7 @@ gsap.to(codingLottie, {
 //---------------------------------------------------------------
 // Get all elements with the 'data-gradient' attribute
 const gradientContainers = document.querySelectorAll('[data-gradient="border-gradient"]');
+const projectButtons = document.querySelectorAll('[data-project-button]');
 
 let isHovered = false;
 
@@ -239,6 +246,17 @@ gradientContainers.forEach((container) => {
         isHovered = false;
         // Reset gradient when mouse leaves the container
         container.style.background = 'radial-gradient(at 50% 50%, white, black, #3498db, #add8e6)';
+    });
+});
+
+projectButtons.forEach((button) => {
+    button.addEventListener('mouseover', function () {
+        button.setAttribute('data-gradient', 'border-gradient');
+        button.setAttribute('data-text-gradiant', '');
+    });
+    button.addEventListener('mouseout', function () {
+        button.removeAttribute('data-gradient');
+        button.setAttribute('data-text-gradiant', '');
     });
 });
 
@@ -366,8 +384,8 @@ if (window.location.href.split('/')[3] === 'about') {
 const heroImg = document.querySelector('[data-hero-image]');
 const heroText = document.querySelector('[data-hero-text]');
 setTimeout(() => {
-    heroImg.classList.remove('invisible');
-    heroText.classList.remove('invisible');
+    heroImg?.classList.remove('invisible');
+    heroText?.classList.remove('invisible');
     gsap.fromTo(
         heroImg,
         {

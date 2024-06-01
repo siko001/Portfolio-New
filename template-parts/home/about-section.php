@@ -10,11 +10,12 @@
                 <p data-st-p2 class="text-lg pr-4"><?php echo esc_html(get_field('about_me_second_paragraph')) ? esc_html(get_field('about_me_second_paragraph')) : "" ?></p>
 
                 <h2 class="flex items-center gap-5 text-2xl max-w-[10ch] relative -left-10 md:left-0"><span class="text-light-primary text-8xl"><?php echo date('Y') - 2021; ?></span> Years of Experience</h2>
-                <div data-st-contant class="flex gap-4 items-center ">
-                    <h3 class="text-5xl">Contact Me</h3><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-light-primary">
+                <a href="/contact" data-st-contant class="flex gap-4 items-center group ">
+                    <h3 class="text-5xl group-hover:text-light-primary transition-colors duration-300 ease-in">Contact Me</h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-light-primary left-0 delay-200 group-hover:left-5 md:group-hover:left-10 relative transition-all duration-300 ease-linear">
                         <path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                     </svg>
-                </div>
+                </a>
             </div>
             <div data-st-lottie class="relative md:absolute lg:relative bottom-0 right-0 lg:left-0 lg:top-0">
                 <lottie-player id="coding-lottie" src="https://lottie.host/3502c1a3-87d8-4138-9944-b4b6f93001f8/edHotQ06QP.json" background="transparent" speed="1" class="mt-5 lg:mt-0 w-[300px] h-[300px] lg:w-[450px] lg:h-[450px] " direction="1" playMode="normal" loop autoplay></lottie-player>

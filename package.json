@@ -21,7 +21,9 @@
         "@lottiefiles/lottie-player": "^2.0.3",
         "@tailwindcss/typography": "^0.5.10",
         "gsap": "^3.12.5",
+        "lenis": "^1.0.45",
         "locomotive-scroll": "^4.1.4",
-        "simplebar": "^6.2.5"
+        "simplebar": "^6.2.5",
+        "splitting": "^1.1.0"
     }
 }

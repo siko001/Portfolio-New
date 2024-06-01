@@ -442,6 +442,9 @@ video {
 .relative{
   position: relative;
 }
+.sticky{
+  position: sticky;
+}
 .-left-10{
   left: -2.5rem;
 }
@@ -515,9 +518,6 @@ video {
 .mt-6{
   margin-top: 1.5rem;
 }
-.mb-40{
-  margin-bottom: 10rem;
-}
 .block{
   display: block;
 }
@@ -551,6 +551,9 @@ video {
 .h-8{
   height: 2rem;
 }
+.h-\[0vh\]{
+  height: 0vh;
+}
 .h-\[125px\]{
   height: 125px;
 }
@@ -574,6 +577,18 @@ video {
 }
 .h-screen{
   height: 100vh;
+}
+.h-\[70vh\]{
+  height: 70vh;
+}
+.h-\[80vh\]{
+  height: 80vh;
+}
+.h-\[60vh\]{
+  height: 60vh;
+}
+.h-\[vh\]{
+  height: vh;
 }
 .w-16{
   width: 4rem;
@@ -707,6 +722,10 @@ video {
 }
 .border-b-2{
   border-bottom-width: 2px;
+}
+.border-red-500{
+  --tw-border-opacity: 1;
+  border-color: rgb(239 68 68 / var(--tw-border-opacity));
 }
 .bg-\[\#1a202c\]{
   --tw-bg-opacity: 1;
@@ -845,8 +864,38 @@ video {
 .opacity-70{
   opacity: 0.7;
 }
+.transition-all{
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.transition-colors{
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.transition-transform{
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.delay-200{
+  transition-delay: 200ms;
+}
+.duration-1000{
+  transition-duration: 1000ms;
+}
 .duration-300{
   transition-duration: 300ms;
+}
+.duration-500{
+  transition-duration: 500ms;
+}
+.ease-in{
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}
+.ease-linear{
+  transition-timing-function: linear;
 }
 
 * {
@@ -892,6 +941,22 @@ video {
     background: linear-gradient(-45deg, #082b71, #ffffff, #000000, #082b71, #ffffff, #000000);
     background-size: 400% 400%;
     animation: gradient 5s ease infinite;
+}
+
+button[data-gradient='border-gradient'] {
+    position: relative;
+    border-radius: 1rem;
+    z-index: 1;
+    overflow: hidden;
+    box-shadow: 0 0 5px 1px rgb(25, 188, 155);
+}
+
+[data-text-gradiant] {
+    background: linear-gradient(to right, rgb(25, 188, 155), #082b71);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 600% 100%;
+    animation: gradient 4s ease infinite;
 }
 
 .glowing-line {
@@ -1000,6 +1065,33 @@ div.wpcf7-response-output {
   text-align: right;
 }
 
+.group:hover .group-hover\:left-5{
+  left: 1.25rem;
+}
+
+.group:hover .group-hover\:scale-110{
+  --tw-scale-x: 1.1;
+  --tw-scale-y: 1.1;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.group:hover .group-hover\:scale-125{
+  --tw-scale-x: 1.25;
+  --tw-scale-y: 1.25;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.group:hover .group-hover\:scale-\[135\%\]{
+  --tw-scale-x: 135%;
+  --tw-scale-y: 135%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.group:hover .group-hover\:text-light-primary{
+  --tw-text-opacity: 1;
+  color: rgb(25 188 155 / var(--tw-text-opacity));
+}
+
 @media (min-width: 768px){
   .md\:absolute{
     position: absolute;
@@ -1048,6 +1140,9 @@ div.wpcf7-response-output {
   }
   .md\:h-\[150px\]{
     height: 150px;
+  }
+  .md\:h-\[60vh\]{
+    height: 60vh;
   }
   .md\:w-48{
     width: 12rem;
@@ -1118,6 +1213,9 @@ div.wpcf7-response-output {
     font-size: 4.5rem;
     line-height: 1;
   }
+  .group:hover .md\:group-hover\:left-10{
+    left: 2.5rem;
+  }
 }
 
 @media (min-width: 1024px){
@@ -1139,14 +1237,14 @@ div.wpcf7-response-output {
   .lg\:mb-0{
     margin-bottom: 0px;
   }
+  .lg\:mb-40{
+    margin-bottom: 10rem;
+  }
   .lg\:ml-24{
     margin-left: 6rem;
   }
   .lg\:mt-0{
     margin-top: 0px;
-  }
-  .lg\:mb-40{
-    margin-bottom: 10rem;
   }
   .lg\:block{
     display: block;
@@ -1219,5 +1317,4 @@ div.wpcf7-response-output {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
-
 

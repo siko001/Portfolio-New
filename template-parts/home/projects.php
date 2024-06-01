@@ -16,19 +16,16 @@ if ($query->have_posts()) {
 
 ?>
     <section class="border-y-2  py-12 lg:py-24">
-        <div class="flex flex-col gap-10 items-center">
+        <div class=" flex flex-col gap-10 items-center">
             <h2 class="font-heading text-6xl text-light-primary flex items-center gap-2">
                 <div class="glowing-line relative -top-2"></div>Projects
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                 <!--   Project Card -->
-                <?php
-                while ($query->have_posts()) {
-                    $query->the_post();
+                <?php while ($query->have_posts()) {
+                    $query->the_post();   ?>
 
-                ?>
-
-                    <div data-gradient="border-gradient" class="p-1 rounded-2xl  flex items-center justify-center relative duration-300">
+                    <div data-gradient="border-gradient" class="p-1 rounded-2xl  flex items-center justify-center relative transition-all duration-1000 ease-linear">
                         <div class="  w-[350px] lg:w-[275px] items-center flex flex-col gap-4 bg-[#1a202c] rounded-2xl">
                             <div class="border-b-2 w-full flex relative justify-center items-center h-[175px] md:h-[150px]  rounded-t-2xl">
 
@@ -45,7 +42,7 @@ if ($query->have_posts()) {
                                 <p>
                             </div>
                             <div class="w-full p-4 ">
-                                <a href="<?= get_field('website_url') ?>"> <button class="w-full text-neutral-50 h-14 border font-bold text-xl bg-light-secondry rounded-2xl">Visit Website</button></a>
+                                <a target="_blank" href="<?= get_field('website_url') ?>"> <button data-project-button class="w-full text-neutral-50  h-14 border font-bold text-xl bg-light-secondry rounded-2xl transition-all duration-500 ease-linear">Visit Website</button></a>
                             </div>
                         </div>
                     </div>

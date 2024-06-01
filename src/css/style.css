@@ -54,6 +54,22 @@ Version: 1.0.0
     animation: gradient 5s ease infinite;
 }
 
+button[data-gradient='border-gradient'] {
+    position: relative;
+    border-radius: 1rem;
+    z-index: 1;
+    overflow: hidden;
+    box-shadow: 0 0 5px 1px rgb(25, 188, 155);
+}
+
+[data-text-gradiant] {
+    background: linear-gradient(to right, rgb(25, 188, 155), #082b71);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 600% 100%;
+    animation: gradient 4s ease infinite;
+}
+
 .glowing-line {
     width: 35px;
     height: 6px;
@@ -155,4 +171,3 @@ div.wpcf7-response-output {
 .about-page::-webkit-scrollbar {
     width: 0px;
 }
-
